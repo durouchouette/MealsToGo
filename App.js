@@ -5,7 +5,8 @@ import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurant
 import { theme } from "./src/infrastructure/theme";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
- 
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
+
 import { Ionicons } from '@expo/vector-icons';
 
 // import AppLoading from 'expo-app-loading';
@@ -46,19 +47,21 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={createScreenOptions}
-            tabBarOptions={{
-              activeTintColor: "blue",
-              inactiveTintColor: "gray",
-            }}
-          >
-            <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-            <Tab.Screen name="Map" component={RestaurantsScreen} />
-            <Tab.Screen name="Settings" component={RestaurantsScreen} />
-          </Tab.Navigator>
-        </NavigationContainer>
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={createScreenOptions}
+              tabBarOptions={{
+                activeTintColor: "blue",
+                inactiveTintColor: "gray",
+              }}
+            >
+              <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+              <Tab.Screen name="Map" component={RestaurantsScreen} />
+              <Tab.Screen name="Settings" component={RestaurantsScreen} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </RestaurantsContextProvider>
       </ThemeProvider>
     </>
   ); 
