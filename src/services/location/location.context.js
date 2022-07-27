@@ -13,23 +13,25 @@ export const LocationContextProvider = ({ children }) => {
   const onSearch = (searchKeyword) => {
     setIsLoading(true);
     setKeyword(searchKeyword);
-    if(!searchKeyword.length) {
-      //there is nothing in the search bar so don't do anything
-      console.log("There is nothing to search forr");
+  };
+
+  useEffect(() => {
+    if (!keyword.length) {
+      // don't do anything
       return;
     }
-    console.log("just before locationrequsst")
-    locationRequest(searchKeyword.toLowerCase())
+    locationRequest(keyword.toLowerCase())
       .then(locationTransform)
       .then((result) => {
         setIsLoading(false);
         setLocation(result);
+        console.log(result);
       })
       .catch((err) => {
         setIsLoading(false);
         setError(err);
       });
-  };
+  }, [keyword]);
 
   return (
     <LocationContext.Provider
