@@ -14,6 +14,7 @@ import {
   SectionEnd, 
   Icon } from "./restaurant-info-cards.styles"
 
+import { Favorite } from "../../../components/favorite/favorite.component";
 
 // eslint-disable-next-line react/prop-types
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -34,6 +35,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return( 
   <RestaurantCard elevation={1}>
+    <Favorite restaurant={restaurant}/>
     <RestaurantCardCover key={name} source={{ uri: photos[0] }} /> 
     <Info>
       <Text variant="label">{name}</Text>
