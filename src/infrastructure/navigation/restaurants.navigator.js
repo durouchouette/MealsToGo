@@ -11,7 +11,8 @@ import React from "react";
    return (
      <RestaurantStack.Navigator 
         screenOptions={{
-          ...TransitionPresets.ModalPresentationIOS
+          ...TransitionPresets.ModalPresentationIOS,
+          headerShown: false
         }}>
        <RestaurantStack.Screen
          name="Restaurants"

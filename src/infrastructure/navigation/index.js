@@ -8,10 +8,10 @@ import { AuthenticationContext } from "../../services/authentication/authenticat
 import { AccountNavigator } from "./account.navigator";
 
 export const Navigation = () => {
-  const { user } = useContext( AuthenticationContext );
+  const { isAuthenticated } = useContext( AuthenticationContext );
   return (
   <NavigationContainer> 
-    {user ? <AppNavigator /> : <AccountNavigator />}
+    {isAuthenticated ? <AppNavigator /> : <AccountNavigator />}
   </NavigationContainer>
   )
 };

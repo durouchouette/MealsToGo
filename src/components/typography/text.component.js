@@ -9,6 +9,11 @@ const defaultTextStyles = (theme) => `
   margin-bottom: 0px;
 `;
 
+const title = (theme) => `
+  font-size: ${theme.fontSizes.h4};
+  color: ${theme.colors.text.primary};
+`;
+
 const body = (theme) => `
     font-size: ${theme.fontSizes.body};
 `;
@@ -38,6 +43,7 @@ const variants = {
   caption,
   error,
   hint,
+  title,
 };
 
 export const Text = styled.Text`

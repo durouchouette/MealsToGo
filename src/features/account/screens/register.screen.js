@@ -11,10 +11,12 @@ import {
   AuthTextInput } 
   from "../components/account.styles";
 
-export const LoginScreen = () => {
+export const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, error } = useContext(AuthenticationContext);
+  const [repeatedPassword, setRepeatedPassword] = useState("");
+
+  const { register, error } = useContext(AuthenticationContext);
 
   return (
     <AccountBackground>
@@ -32,6 +34,13 @@ export const LoginScreen = () => {
           secureTextEntry
           onChangeText={u => setPassword(u)}
         />
+        <AuthTextInput
+          label="Repeat password"
+          value={repeatedPassword}
+          textContentType="password"
+          secureTextEntry
+          onChangeText={u => setRepeatedPassword(u)}
+        />
         {error && (
            <Spacer size="large">
              <Text variant="error">{error}</Text>
@@ -41,7 +50,7 @@ export const LoginScreen = () => {
           <AuthButton
             icon="account" 
             mode="contained"
-            onPress={() => login(email, password)}
+            onPress={() => register(email, password, repeatedPassword)}
           >
             Login
           </AuthButton>
