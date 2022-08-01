@@ -10,7 +10,6 @@ import React from "react";
  export const RestaurantsNavigator = () => {
    return (
      <RestaurantStack.Navigator 
-        headerMode='none'
         screenOptions={{
           ...TransitionPresets.ModalPresentationIOS
         }}>

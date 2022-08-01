@@ -4,6 +4,8 @@ import { Searchbar } from "react-native-paper";
 
 import { LocationContext } from "../../../services/location/location.context";
 
+import { Text } from "../../../components/typography/text.component";
+
 const SearchContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
@@ -12,7 +14,6 @@ export const Search = ({ isFavoritesToggled, onFavoritesToggle }) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
 
-  console.log(isFavoritesToggled);
   return (
     <SearchContainer>
       <Searchbar
