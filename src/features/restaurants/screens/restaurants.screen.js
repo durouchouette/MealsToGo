@@ -7,6 +7,7 @@ import { SafeArea } from "../../../components/utility/safe-area.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { Search } from "../components/search.component";
 import { FavoritesBar } from "../../../components/favorite/favorites-bar.component";
+import { FadeInView } from "../../../components/animations/fade.animation";
 
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { FavoritesContext } from "../../../services/favorites/favorites.context";
@@ -49,8 +50,10 @@ export const RestaurantsScreen = ({ navigation }) => {
                 })
               }
             >
+              <FadeInView>
                 <RestaurantInfoCard restaurant={item}/> 
-              </TouchableOpacity>
+              </FadeInView>
+            </TouchableOpacity>
             );
           }}
           keyExtractor={(item) => item.name}
