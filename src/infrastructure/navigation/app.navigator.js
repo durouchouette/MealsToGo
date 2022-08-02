@@ -8,6 +8,7 @@ import { LocationContextProvider } from "../../services/location/location.contex
 import { FavoritesContextProvider } from "../../services/favorites/favorites.context";
 
 import { RestaurantsNavigator } from "./restaurants.navigator";
+import { SettingsNavigator } from "./settings.navigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -39,7 +40,7 @@ export const AppNavigator = () => {
           >
             <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
             {/* <Tab.Screen name="Map" component={RestaurantsNavigator} /> */}
-            {/* <Tab.Screen name="Settings" component={RestaurantsNavigator} /> */}
+            <Tab.Screen name="Settings" component={SettingsNavigator} />
           </Tab.Navigator>
         </RestaurantsContextProvider>
       </LocationContextProvider>
